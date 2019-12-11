@@ -1,4 +1,4 @@
-class player extends sprite {
+class Player extends sprite {
     constructor(plCol) {
         super()
         this.x = 0
@@ -7,6 +7,7 @@ class player extends sprite {
         this.vy = 0
         this.width = 50
         this.height = 50
+        this.SPEED = 5
         //this.img = loadImage(imgURL)
         this.active = true
         this.color = plCol

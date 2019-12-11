@@ -1,4 +1,4 @@
- class Phaser extends platform {
+class Phaser extends platform {
         constructor(phCol) {
         super()
         this.x = 500
