@@ -36,11 +36,13 @@ class sprite{
     this.x += this.vx
     this.y += this.vy
     
-     if (this.x < -30 || this.x > width + 30){
+     if (this.x < -70 || this.x > width + 70){
        this.onScreen = false
+         this.die()
   }
-     if (this.y < -30 || this.y > height + 30){
+     if (this.y < -70 || this.y > height + 70){
        this.onScreen = false
+         this.die()
      }
   }
     
@@ -53,16 +55,20 @@ class sprite{
   
   wallCols(s){
     if (s.x > width){
+    s.x = (s.vx * -1)
       s.x  = width - 1
+       
     }
     if (s.x < 0){
+      s.x = (s.vx * 1)
       s.x  = 1
     }
     if (s.y > height){
+    s.y = (s.vy * -1)
       s.y  = height -1
     }
-    if (s.y < 0){
-      s.y  = 1
+    if (s.y < -50){
+      s.die()
     }
   }
   

@@ -7,7 +7,7 @@
 //var checkpoints = []
 //var bgCol
 
-var grav = 1.5
+//var grav = 1.5
 
 var setCol
 
@@ -52,14 +52,12 @@ function setup(){
 }
 
 function draw(){
-    
+    for (var i; i< stages.length; i++){
+    createStage()
+      stage.draw()
+}  
 }
 
-function activate(){
-  for (var i; i< 1; i++){
-      createStage()
-  } 
-}
 
 function createStage(){
      createCanvas(1200,800)
@@ -368,4 +366,107 @@ stage3.c0 = {
    active : true
 }
 stages.push(stage3)
+
+var stage4 = {
+    p0 : platforms[16],
+    p1 : platforms[17], 
+    p2 : platforms[18], 
+    p3 : platforms[19],
+    ph0: phasers[7],
+    ph1: phasers[8],
+    ph2: phasers[9],
+    d0 : dangers[8],
+    d1 : dangers[9],
+    ch0: chasers[0],
+    ch1: chasers[1],
+    c0 : checkpoints[4],
+    col: colList[4]
+}
+stage4.p0 = {
+    x : 0,
+    y : 0,
+    width : 200,
+    height : 100,
+    active : true
+}
+stage4.p1 = {
+   x : 200,
+   y : 0,
+   width : 50,
+   height : 150,
+   active : true
+}
+stage4.p2 = {
+   x : 300,
+   y : 100,
+   width : 200,
+   height : 50,
+   active : true
+}
+stage4.p3 = {
+   x : 950,
+   y : 300,
+   width : 200,
+   height : 50,
+   active : true
+}
+stage4.ph0 = {
+  x : 0,
+  y : 150,
+  width : 200,
+  height : 50,
+  active : true
+}
+stage4.ph1 = {
+  x : 500,
+  y : 350,
+  width : 100,
+  height : 50,
+  active : true
+}
+stage4.ph2 = {
+  x : 650,
+  y : 200,
+  width : 150,
+  height : 50,
+  active : true
+}
+stage4.d0 = {
+    x : 150,
+   y : 350,
+   width : 200,
+   height : 30,
+   active : true
+}
+stage4.d1 = {
+    x : 450,
+   y : 450,
+   width : 150,
+   height : 30,
+   active : true
+}
+stage4.ch0 = {
+    x : 1000,
+   y : 900,
+   width : 50,
+   height : 50,
+   active : true
+}
+stage4.ch1 = {
+    x : 100,
+   y : 900,
+   width : 50,
+   height : 50,
+   active : true
+}
+stage4.c0 = {
+    x : 1000,
+   y : 700,
+   width : 50,
+   height : 100,
+   active : true
+}
+stages.push(stage4)
+
+
 

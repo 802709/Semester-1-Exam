@@ -16,7 +16,6 @@ var stage = {
     col: bgCol  
 }
 
-
     
 var assets = {
     images: {},
@@ -45,7 +44,7 @@ var stages = []
 
 
 //stages.push(archive.stages)
-stages.push(archive.stage0, archive.stage1, archive.stage2, archive.stage3)
+stages.push(archive.stage0, archive.stage1, archive.stage2, archive.stage3, archive.stage4)
 //var archive = [stage]
 }    
     
@@ -60,40 +59,39 @@ function draw(){
         .forEach(sprite => {
             p.draw()
             p.update()
-            p.collisions(p)
          sprites.push(p)
     })
-     dangers.filter(p => p.active)
+     dangers.filter(pd => pd.active)
         .forEach(sprite => {
-           p.draw()
-            p.update()
-            p.collisions(p)
-         sprites.push(p)
+           pd.draw()
+            pd.update()
+            pd.collisions(p)
+         sprites.push(pd)
     })
-     chasers.filter(p => p.active)
+     chasers.filter(c => c.active)
         .forEach(sprite => {
-           p.draw()
-            p.update()
-            p.collisions(p)
-         p.chase()
-         sprites.push(p)
+           c.draw()
+            c.update()
+            c.collisions(p)
+         c.chase(p)
+         sprites.push(c)
     })
     
-    phasers.filter(p => p.active)
+    phasers.filter(ph => ph.active)
         .forEach(sprite => {
-          p.draw()
-            p.update()
-        sprites.push(p)
-        if(p.color != cyan){
-            p.collisions(p)
+          ph.draw()
+            ph.update()
+        sprites.push(ph)
+        if(ph.color != cyan){
+            ph.collisions(p)
         }
     })
-    checkpoints.filter(p => p.active)
+    checkpoints.filter(c => c.active)
         .forEach(sprite => {
-          p.draw()
-            p.update()
-            p.collisions(p)
-        sprites.push(p)
+          c.draw()
+            c.update()
+            c.collisions(p)
+        sprites.push(c)
     })
     
     assets.sprites
@@ -104,6 +102,10 @@ function draw(){
         })
         gravity()
     setStage()
+    
+    if (p.offStage == true){
+        bgCol = "red"
+    }
 }
     
     
